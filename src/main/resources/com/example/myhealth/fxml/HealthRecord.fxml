@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="healthRecordAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/HealthRecord.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myhealth.controllers.HealthRecordController">
+   <children>
+      <AnchorPane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: rgb(5,150,105);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane id="displayMenuButton" onMouseClicked="#toggleDisplayMenuOptions" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: rgb(241, 245, 249); -fx-cursor: hand;" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.5" AnchorPane.topAnchor="2.5">
+                     <image>
+                        <Image url="@../assets/user.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="usernameMenuLabel" layoutX="49.0" layoutY="12.0" text="Unknown" textFill="#2032ff" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="System Font" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </AnchorPane>
+            <ImageView blendMode="SCREEN" cache="true" cacheHint="QUALITY" fitHeight="42.0" fitWidth="50.0" layoutX="7.0" layoutY="11.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 3; -fx-scale-y: 3; -fx-cursor: hand;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="15.0">
+               <image>
+                  <Image url="@../assets/my-health-logo-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="75.0" layoutY="15.0" onMouseClicked="#goToHome" style="-fx-cursor: hand;" text="MY HEALTH" textFill="#cbffd4">
+               <font>
+                  <Font name="Baloo Bhaina 2 Regular" size="30.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </AnchorPane>
+      <AnchorPane layoutY="70.0" prefHeight="314.0" prefWidth="532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <ImageView fx:id="connectionStatus" fitHeight="11.0" fitWidth="13.0" layoutX="581.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/onlineStatus.png" />
+               </image>
+            </ImageView>
+            <TableView id="tableView" fx:id="tableView" editable="true" layoutX="29.0" layoutY="65.0" prefHeight="257.0" prefWidth="544.0" style="-fx-border-width: 0;">
+              <columns>
+                <TableColumn id="createdAtColumn" fx:id="createdAtColumn" editable="false" prefWidth="183.0" text="Created At" />
+                <TableColumn id="weightColumn" fx:id="weightColumn" prefWidth="62.0" text="Weight" />
+                  <TableColumn id="temperatureColumn" fx:id="temperatureColumn" prefWidth="79.0" text="Temperature" />
+                  <TableColumn id="lowBloodPressureColumn" fx:id="lowBloodPressureColumn" prefWidth="97.0" text="Low Blood Pressure" />
+                  <TableColumn id="highBloodPressureColumn" fx:id="highBloodPressureColumn" prefWidth="97.0" text="High Blood Pressure" />
+                  <TableColumn id="viewRecordsColumn" fx:id="viewRecordsColumn" prefWidth="84.0" />
+                  <TableColumn id="deleteRecordsColumn" fx:id="deleteRecordsColumn" minWidth="7.0" prefWidth="38.0" />
+              </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TableView>
+            <Label layoutX="26.0" layoutY="-10.0" prefHeight="95.0" prefWidth="326.0" text="Health Records" textFill="#69d39a" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="258.0">
+               <font>
+                  <Font name="Baloo 2 Regular" size="45.0" />
+               </font>
+            </Label>
+            <Button id="addHealthRecordButton" blendMode="SRC_ATOP" depthTest="DISABLE" layoutX="345.0" layoutY="20.0" mnemonicParsing="false" onAction="#toggleDisplayAddHealthRecord" style="-fx-background-color: rgb(209, 250, 229); -fx-cursor: hand;" text="Add Record" textFill="#007cff">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/addRecord.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow radius="10.7375" width="23.95">
+                     <color>
+                        <Color red="0.6809210777282715" green="0.9078947305679321" blue="0.6998355388641357" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button id="exportHealthRecordButton" fx:id="exportHealthRecordButton" blendMode="SRC_ATOP" depthTest="DISABLE" layoutX="483.0" layoutY="20.0" mnemonicParsing="false" onAction="#exportDataToCSV" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: rgb(254 ,249 ,195); -fx-cursor: hand;" text="Export" textFill="#dd7a00">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/exportRecord.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow height="22.48" radius="11.1075" width="23.95">
+                     <color>
+                        <Color red="0.8999999761581421" green="0.8653163909912109" blue="0.6840000152587891" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <AnchorPane fx:id="addNewRecordPane" layoutY="-70.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(241,245,249);" visible="false">
+               <children>
+                  <TextField fx:id="addNewRecordHighBloodPressureInput" layoutX="33.0" layoutY="265.0" prefHeight="35.0" prefWidth="258.0" promptText="High Blood Pressure" />
+                  <TextField fx:id="addNewRecordWeightInput" layoutX="33.0" layoutY="100.0" prefHeight="35.0" prefWidth="258.0" promptText="Weight" />
+                  <TextField fx:id="addNewRecordTemperatureInput" layoutX="33.0" layoutY="156.0" prefHeight="35.0" prefWidth="258.0" promptText="Temperature" />
+                  <Button fx:id="addNewRecordConfirmButton" layoutX="468.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#addNewRecord" prefHeight="26.0" prefWidth="96.0" style="-fx-background-radius: 5; -fx-background-color: #2032ff; -fx-cursor: hand;" text="Confirm" textFill="WHITE" />
+                  <Button fx:id="addNewRecordCancelButton" layoutX="359.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#closeAddNewRecordPane" prefHeight="26.0" prefWidth="96.0" style="-fx-background-radius: 5; -fx-background-color: white; -fx-text-fill: black; -fx-cursor: hand;" text="Cancel" />
+                  <Label layoutX="208.0" layoutY="39.0" text="Add New Record" textFill="#2032ff">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="addNewRecordLowBloodPressureInput" layoutX="33.0" layoutY="210.0" prefHeight="35.0" prefWidth="258.0" promptText="Low Blood Pressure" />
+                  <TextArea fx:id="addNewRecordNoteInput" layoutX="312.0" layoutY="100.0" prefHeight="200.0" prefWidth="252.0" promptText="Note" />
+                  <VBox fx:id="addNewRecordErrorMessagePane" alignment="TOP_RIGHT" layoutX="35.0" layoutY="313.0" prefHeight="35.0" prefWidth="531.0" visible="false">
+                     <children>
+                        <Label fx:id="addNewRecordErrorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="34.0" prefWidth="565.0" text="Add Health Record Error Message" textAlignment="RIGHT" textFill="RED" />
+                     </children>
+                  </VBox>
+                  <DatePicker fx:id="addNewRecordDatePicker" editable="false" layoutX="33.0" layoutY="355.0" prefHeight="26.0" prefWidth="258.0" promptText="Date (OPTIONAL)" />
+               </children>
+               <effect>
+                  <DropShadow height="12.16" radius="5.58" width="12.16">
+                     <color>
+                        <Color red="0.432809442281723" green="0.6447368264198303" blue="0.4893234372138977" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="menuDropdownPane" layoutX="432.0" prefHeight="140.0" prefWidth="170.0" style="-fx-background-radius: 30; -fx-border-radius: 30" visible="false">
+               <children>
+                  <Button id="homeMenuButton" fx:id="homeMenuButton" mnemonicParsing="false" onAction="#goToHome" prefHeight="37.0" prefWidth="160.0" style="-fx-background-radius: 10 10 0 0; -fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Home" textFill="#1229ff" />
+                  <Button id="profileMenuButton" fx:id="profileMenuButton" layoutY="37.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Profile" />
+                  <Button id="healthRecordMenuButton" fx:id="healthRecordMenuButton" layoutY="74.0" mnemonicParsing="false" onAction="#goToHealthRecord" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Health Records" />
+                  <Button id="logoutMenuButton" fx:id="logoutMenuButton" layoutY="148.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="160.0" style="-fx-background-radius: 0 0 10 10; -fx-background-color: rgb(235, 245, 290); -fx-text-fill: red; -fx-cursor: hand;" text="Logout" />
+                  <Button id="healthRecordMenuButton" fx:id="healthRecordMenuButton1" disable="true" layoutY="111.0" mnemonicParsing="false" onAction="#goToHealthRecord" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: lightblue; -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Settings" textFill="#fafffd" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="editHealthRecordPane" layoutY="-70.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(241,245,249);" visible="false">
+               <children>
+                  <DatePicker fx:id="editHealthRecordDatePicker" editable="false" layoutX="35.0" layoutY="355.0" prefHeight="26.0" prefWidth="258.0" promptText="Date (OPTIONAL)" />
+                  <TextField fx:id="editHealthRecordHighBloodPressureInput" layoutX="33.0" layoutY="265.0" prefHeight="35.0" prefWidth="258.0" promptText="High Blood Pressure" />
+                  <TextField fx:id="editHealthRecordWeightInput" layoutX="33.0" layoutY="100.0" prefHeight="35.0" prefWidth="258.0" promptText="Weight" />
+                  <TextField fx:id="editHealthRecordTemperatureInput" layoutX="33.0" layoutY="156.0" prefHeight="35.0" prefWidth="258.0" promptText="Temperature" />
+                  <Button fx:id="editHealthRecordConfirmButton" layoutX="468.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#editHealthRecord" prefHeight="26.0" prefWidth="96.0" style="-fx-background-radius: 5; -fx-background-color: #2032ff; -fx-cursor: hand;" text="Confirm" textFill="WHITE" />
+                  <Button fx:id="editHealthRecordCancelButton" layoutX="359.0" layoutY="355.0" mnemonicParsing="false" onMouseClicked="#closeEditRecordPane" prefHeight="26.0" prefWidth="96.0" style="-fx-background-radius: 5; -fx-background-color: white; -fx-text-fill: black; -fx-cursor: hand;" text="Cancel" />
+                  <Label layoutX="208.0" layoutY="39.0" text="View/Edit Records" textFill="#2032ff">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editHealthRecordLowBloodPressureInput" layoutX="33.0" layoutY="210.0" prefHeight="35.0" prefWidth="258.0" promptText="Low Blood Pressure" />
+                  <TextArea fx:id="editHealthRecordNoteInput" layoutX="312.0" layoutY="100.0" prefHeight="200.0" prefWidth="252.0" promptText="Note" />
+                  <VBox fx:id="editHealthRecordErrorMessagePane" alignment="TOP_RIGHT" layoutX="35.0" layoutY="306.0" prefHeight="35.0" prefWidth="531.0" visible="false">
+                     <children>
+                        <Label fx:id="editHealthRecordErrorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="34.0" prefWidth="565.0" text="Edit Health Record Error Message" textAlignment="RIGHT" textFill="RED" />
+                     </children>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow height="12.16" radius="5.58" width="12.16">
+                     <color>
+                        <Color red="0.432809442281723" green="0.6447368264198303" blue="0.4893234372138977" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </AnchorPane>
+            <Label fx:id="healthRecordIdLabel" text="HealthRecordId" visible="false" />
+            <AnchorPane fx:id="deleteHealthRecordPane" layoutX="195.0" layoutY="51.0" prefHeight="200.0" prefWidth="274.0" style="-fx-background-color: rgb(241,245,249); -fx-background-radius: 10;" visible="false">
+               <children>
+                  <Button fx:id="deleteHealthRecordConfirmButton" layoutX="195.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#deleteHealthRecord" style="-fx-background-radius: 30; -fx-background-color: red; -fx-cursor: hand;" text="Confirm" textFill="WHITE" />
+                  <Button fx:id="deleteHealthRecordCancelButton" layoutX="130.0" layoutY="158.0" mnemonicParsing="false" onMouseClicked="#closeDeleteHealthRecordPane" style="-fx-background-radius: 30; -fx-background-color: white; -fx-text-fill: black; -fx-cursor: hand;" text="Cancel" />
+                  <Label layoutX="25.0" layoutY="28.0" text="Delete Health Record" textFill="#ff2121">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="12.0" layoutY="70.0" prefHeight="60.0" prefWidth="258.0" text="This action cannot be reverted.  Once deleted, the record will be permanently removed from the system." wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow height="12.16" radius="5.58" width="12.16">
+                     <color>
+                        <Color red="0.432809442281723" green="0.6447368264198303" blue="0.4893234372138977" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </AnchorPane>
+            <AnchorPane fx:id="exportHealthRecordSuccess" layoutX="195.0" layoutY="60.0" prefHeight="223.0" prefWidth="274.0" style="-fx-background-color: white; -fx-background-radius: 10;" visible="false" AnchorPane.bottomAnchor="57.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Button layoutX="223.0" layoutY="155.0" mnemonicParsing="false" onAction="#closeExportHealthRecordSuccess" prefHeight="35.0" prefWidth="37.0" style="-fx-background-radius: 30; -fx-background-color: rgb(132,204, 22); -fx-cursor: hand;" text="OK" textFill="WHITE" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="98.0" prefHeight="60.0" prefWidth="258.0" text="Successfully exported the health records" textAlignment="CENTER" textFill="#00e81b" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="101.0" fitWidth="139.0" layoutX="74.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/success.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+               <effect>
+                  <DropShadow height="12.16" radius="5.58" width="12.16">
+                     <color>
+                        <Color red="0.432809442281723" green="0.6447368264198303" blue="0.4893234372138977" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+</AnchorPane>

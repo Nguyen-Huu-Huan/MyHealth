@@ -1,0 +1,74 @@
+#profileMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+#displayMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+}
+#displayMenuButton:hover > #usernameMenuLabel {
+    -fx-text-fill: white !important;
+}
+
+#homeMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+
+#profileMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+#healthRecordMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+
+#logoutMenuButton:hover {
+    -fx-background-color: red !important;
+    -fx-text-fill: white !important;
+}
+#addHealthRecordButton:hover {
+    -fx-background-color: rgb(5, 150, 105) !important;
+    -fx-text-fill: white !important;
+}
+#exportHealthRecordButton:hover {
+    -fx-background-color: rgb(234, 179, 8) !important;
+    -fx-text-fill: white !important;
+}
+.table-view {
+    -fx-border-style: none !important;
+    -fx-background-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-radius: 10 !important;
+}
+.table-view .column-header {
+    -fx-background-color: rgb(110,231,183);
+}
+#createdAtColumn .table-cell {
+    -fx-alignment: center;
+    -fx-text-fill: red;
+    -fx-background-color: green;
+}
+.table-row-cell:hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: orange;
+}
+.table-row-cell:odd{
+    -fx-background-color: #93f9b911;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-cell {
+    -fx-alignment: center;
+}
+.table-row-cell:selected {
+    -fx-background-color: rgb(247, 254, 231);
+    -fx-text-background-color: orange;
+}

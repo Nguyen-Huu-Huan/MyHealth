@@ -1,0 +1,30 @@
+#displayMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+}
+
+#usernameMenuLabel {
+    -fx-text-fill: #2032ff !important;
+}
+
+#displayMenuButton:hover > #usernameMenuLabel {
+    -fx-text-fill: white !important;
+}
+
+#homeMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+
+#profileMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+#healthRecordMenuButton:hover {
+    -fx-background-color: rgb(30, 41, 59) !important;
+    -fx-text-fill: white !important;
+}
+
+#logoutMenuButton:hover {
+    -fx-background-color: red !important;
+    -fx-text-fill: white !important;
+}

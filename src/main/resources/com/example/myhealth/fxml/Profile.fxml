@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="profileAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/Profile.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myhealth.controllers.ProfileController">
+    <children>
+        <AnchorPane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: rgb(5,150,105);" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane id="displayMenuButton" onMouseClicked="#toggleDisplayMenuOptions" style="-fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: rgb(241, 245, 249); -fx-cursor: hand;" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
+                    <children>
+                        <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="8.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="2.5" AnchorPane.topAnchor="2.5">
+                            <image>
+                                <Image url="@../assets/user.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="usernameMenuLabel" layoutX="49.0" layoutY="12.0" text="Unknown" textFill="#2032ff" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <font>
+                                <Font name="System Font" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </AnchorPane>
+                <ImageView blendMode="SCREEN" cache="true" cacheHint="QUALITY" fitHeight="42.0" fitWidth="50.0" layoutX="7.0" layoutY="11.0" onMouseClicked="#goToHome" pickOnBounds="true" preserveRatio="true" style="-fx-scale-x: 3; -fx-scale-y: 3; -fx-cursor: hand;" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="15.0">
+                    <image>
+                        <Image url="@../assets/my-health-logo-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="76.0" layoutY="15.0" onMouseClicked="#goToHome" style="-fx-cursor: hand;" text="MY HEALTH" textFill="#cbffd4">
+                    <font>
+                        <Font name="Baloo Bhaina 2 Regular" size="30.0" />
+                    </font>
+                    <effect>
+                        <Glow />
+                    </effect>
+                </Label>
+            </children>
+            <padding>
+                <Insets left="10.0" right="10.0" />
+            </padding>
+        </AnchorPane>
+        <AnchorPane layoutY="70.0" prefHeight="314.0" prefWidth="532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <children>
+                <ImageView fitHeight="240.0" fitWidth="263.0" layoutX="34.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/user.png" />
+                    </image>
+                </ImageView>
+                <Pane prefHeight="200.0" prefWidth="200.0" />
+                <Label fx:id="usernameLabel" layoutX="300.0" layoutY="133.0" text="Huan, Nguyen" textFill="#2032ff" AnchorPane.leftAnchor="280.0">
+                    <font>
+                        <Font size="39.0" />
+                    </font>
+                </Label>
+                <ImageView fx:id="editProfileIconButton" fitHeight="25.0" fitWidth="37.0" layoutX="561.0" layoutY="133.0" onMouseClicked="#toggleDisplayEditUser" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" AnchorPane.bottomAnchor="172.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="133.0">
+                    <image>
+                        <Image url="@../assets/editIcon.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="connectionStatus" fitHeight="11.0" fitWidth="13.0" layoutX="581.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../assets/onlineStatus.png" />
+                    </image>
+                </ImageView>
+            <AnchorPane fx:id="menuDropdownPane" layoutX="432.0" prefHeight="206.0" prefWidth="170.0" style="-fx-background-radius: 30; -fx-border-radius: 30" visible="false">
+               <children>
+                  <Button id="homeMenuButton" fx:id="homeMenuButton" mnemonicParsing="false" onAction="#goToHome" prefHeight="37.0" prefWidth="160.0" style="-fx-background-radius: 10 10 0 0; -fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Home" textFill="#1229ff" />
+                  <Button id="profileMenuButton" fx:id="profileMenuButton" layoutY="37.0" mnemonicParsing="false" onAction="#goToProfile" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Profile" />
+                  <Button id="healthRecordMenuButton" fx:id="healthRecordMenuButto" layoutY="74.0" mnemonicParsing="false" onAction="#goToHealthRecord" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Health Records" />
+                  <Button id="logoutMenuButton" fx:id="logoutMenuButton" layoutY="149.0" mnemonicParsing="false" onAction="#logout" prefHeight="37.0" prefWidth="160.0" style="-fx-background-radius: 0 0 10 10; -fx-background-color: rgb(235, 245, 290); -fx-text-fill: red; -fx-cursor: hand;" text="Logout" />
+                  <Button id="healthRecordMenuButton" fx:id="healthRecordMenuButton" layoutY="112.0" mnemonicParsing="false" onAction="#openUserSetting" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: rgb(235, 245, 290); -fx-text-fill: #2032ff; -fx-cursor: hand;" text="Settings" />
+               </children>
+            </AnchorPane>
+                <AnchorPane fx:id="editProfilePane" layoutX="163.0" layoutY="21.0" prefHeight="270.0" prefWidth="274.0" style="-fx-background-color: rgb(241,245,249); -fx-background-radius: 15;" visible="false">
+                    <children>
+                  <VBox fx:id="errorMessageVBox" alignment="TOP_RIGHT" layoutX="26.0" layoutY="173.0" prefHeight="52.0" prefWidth="234.0" visible="false">
+                     <children>
+                        <Label fx:id="errorMessageLabel" style="-fx-wrap-text: true;" text="Edit Profile Error Message" textAlignment="RIGHT" textFill="RED" />
+                     </children>
+                  </VBox>
+                        <TextField fx:id="firstNameInput" layoutX="24.0" layoutY="82.0" prefHeight="26.0" prefWidth="234.0" promptText="Firstname" />
+                        <TextField fx:id="lastNameInput" layoutX="23.0" layoutY="131.0" prefHeight="26.0" prefWidth="234.0" promptText="Lastname" />
+                        <Button fx:id="editProfileConfirmButton" layoutX="196.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#editUserProfile" style="-fx-background-radius: 30; -fx-background-color: #2032ff; -fx-cursor: hand;" text="Confirm" textFill="WHITE" />
+                        <Button fx:id="editProfileCancelButton" layoutX="131.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#closeEditUser" style="-fx-background-radius: 30; -fx-background-color: white; -fx-text-fill: black; -fx-cursor: hand;" text="Cancel" />
+                        <Label layoutX="79.0" layoutY="27.0" text="Edit Profile" textFill="#2032ff">
+                            <font>
+                                <Font size="26.0" />
+                            </font>
+                        </Label>
+                    </children>
+               <effect>
+                  <DropShadow height="12.16" radius="5.58" width="12.16">
+                     <color>
+                        <Color red="0.432809442281723" green="0.6447368264198303" blue="0.4893234372138977" />
+                     </color>
+                  </DropShadow>
+               </effect>
+                </AnchorPane>
+            <Label fx:id="javaFxVersion" layoutX="290.0" layoutY="307.0" text="JavaFX:" textFill="#ff9700" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="javaFxRuntimeVersion" layoutX="290.0" layoutY="283.0" text="JavaFx Runtime:" textFill="#ff9700" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="112.0" layoutY="291.0" mnemonicParsing="false" onAction="#toggleDisplayVersion" style="-fx-background-color: lightgreen; -fx-text-fill: indigo; -fx-background-radius: 2;" text="Get Version" />
+            <AnchorPane fx:id="userSettingPane" layoutX="31.0" layoutY="5.0" prefHeight="305.0" prefWidth="538.0" style="-fx-background-color: rgb(241,245,249); -fx-background-radius: 5;" visible="false">
+               <children>
+                  <Label layoutX="230.0" layoutY="14.0" text="Setting" textFill="#2032ff">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="userSettingFontFamily" layoutX="16.0" layoutY="72.0" prefHeight="28.0" prefWidth="274.0" promptText="Font Family" style="-fx-background-color: white;" />
+                  <ComboBox fx:id="userSettingFontPosture" layoutX="157.0" layoutY="112.0" prefHeight="28.0" prefWidth="134.0" promptText="Font Posture" style="-fx-background-color: white;" />
+                  <Slider fx:id="userSettingFontSize" blockIncrement="1.0" layoutX="48.0" layoutY="195.0" majorTickUnit="1.0" max="20.0" min="10.0" minorTickCount="0" prefHeight="42.0" prefWidth="442.0" showTickLabels="true" value="13.0" />
+                  <ColorPicker fx:id="userSettingFontColor" layoutX="16.0" layoutY="153.0" prefHeight="27.0" prefWidth="274.0" style="-fx-background-color: white;" />
+                  <Button fx:id="userSettingConfirmButton" layoutX="425.0" layoutY="260.0" mnemonicParsing="false" onAction="#saveUserSetting" style="-fx-background-radius: 5; -fx-background-color: #2032ff; -fx-cursor: hand;" text="Save Changes" textFill="WHITE" />
+                  <Button fx:id="userSettingCancelButton" layoutX="357.0" layoutY="260.0" mnemonicParsing="false" onAction="#closeUserSetting" style="-fx-background-radius: 5; -fx-background-color: white; -fx-text-fill: black; -fx-cursor: hand;" text="Cancel" />
+                  <ComboBox fx:id="userSettingFontWeight" layoutX="17.0" layoutY="112.0" prefHeight="28.0" prefWidth="134.0" promptText="Font Weight" style="-fx-background-color: white;" />
+                  <VBox alignment="CENTER" layoutX="303.0" layoutY="70.0" prefHeight="113.0" prefWidth="221.0" style="-fx-background-color: rgb(248, 250, 252); -fx-background-radius: 5;">
+                     <children>
+                        <Label fx:id="previewUserSetting" text="Lorem Ipsum">
+                           <font>
+                              <Font name="System Bold Italic" size="23.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </VBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </AnchorPane>
+    </children>
+</AnchorPane>
